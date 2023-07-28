@@ -3,6 +3,7 @@ import Home from "./pages/Home.jsx";
 import Product from "./pages/Product.jsx";
 import Pricing from "./pages/Pricing.jsx";
 import NotFound from "./pages/NotFound.jsx";
+import AppLayout from "./pages/AppLayout.jsx";
 
 function App() {
 	return (
@@ -11,6 +12,7 @@ function App() {
 				<Route path="/" element={<Home />} />
 				<Route path="product" element={<Product />} />
 				<Route path="pricing" element={<Pricing />} />
+				<Route path="app" element={<AppLayout />} />
 				<Route path="*" element={<NotFound />} />
 			</Routes>
 		</BrowserRouter>
