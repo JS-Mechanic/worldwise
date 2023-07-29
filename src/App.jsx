@@ -5,6 +5,10 @@ import Pricing from "./pages/Pricing.jsx";
 import NotFound from "./pages/NotFound.jsx";
 import AppLayout from "./pages/AppLayout.jsx";
 import Login from "./pages/Login.jsx";
+import CityList from "./components/CityList.jsx";
+import {useState, useEffect} from "react";
+
+const BASE_URL = "https://my-json-server.typicode.com/JS-Mechanic/restapi";
 
 function App() {
 	return (
