@@ -11,6 +11,25 @@ import {useState, useEffect} from "react";
 const BASE_URL = "https://my-json-server.typicode.com/JS-Mechanic/restapi";
 
 function App() {
+	const [cities, setCities] = useState({});
+	const [isLoading, setIsLoading] = useState(false);
+
+	useEffect(() => {
+		async function fetchCities() {
+			try {
+				setIsLoading(true);
+				const res = await fetch(`${BASE_URL}/cities`);
+				const data = await res.json();
+				setCities(data);
+			} catch (e) {
+				alert(e.message);
+			} finally {
+				setIsLoading(false);
+			}
+		}
+		fetchCities();
+	}, []);
+
 	return (
 		<BrowserRouter>
 			<Routes>
