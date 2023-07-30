@@ -9,6 +9,7 @@ import CityList from "./components/CityList.jsx";
 import {useState, useEffect} from "react";
 import CountryList from "./components/CountryList.jsx";
 import City from "./components/City.jsx";
+import Form from "./components/Form.jsx";
 
 const BASE_URL = "https://my-json-server.typicode.com/JS-Mechanic/restapi";
 
@@ -44,7 +45,7 @@ function App() {
 					<Route path="cities" element={<CityList cities={cities} isLoading={isLoading} />} />
 					<Route path="cities/:id" element={<City />} />
 					<Route path="countries" element={<CountryList cities={cities} isLoading={isLoading} />} />
-					<Route path="form" element={<p>Form</p>} />
+					<Route path="form" element={<Form />} />
 				</Route>
 				<Route path="*" element={<NotFound />} />
 			</Routes>
