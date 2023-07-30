@@ -9,4 +9,10 @@
   grid-template-columns: 1fr 1fr;
   align-content: start;
   gap: 1.6rem;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+::-webkit-scrollbar {
+  display: none;
 }
