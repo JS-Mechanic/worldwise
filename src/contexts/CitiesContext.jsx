@@ -3,7 +3,7 @@ import {createContext, useContext, useEffect, useState} from "react";
 const BASE_URL = "https://my-json-server.typicode.com/JS-Mechanic/restapi";
 const CitiesContext = createContext(null);
 
-export function CitiesProvider(children) {
+export function CitiesProvider({children}) {
 	const [cities, setCities] = useState({});
 	const [isLoading, setIsLoading] = useState(false);
 
