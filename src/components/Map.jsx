@@ -18,12 +18,8 @@ export default function Map() {
 	}, [mapLat, mapLng]);
 
 	return (
-		<div
-			className={styles.mapContainer}
-			onClick={() => {
-				navigate("form");
-			}}>
-			<MapContainer center={mapPosition} zoom={13} scrollWheelZoom={true} className={styles.map}>
+		<div className={styles.mapContainer}>
+			<MapContainer center={mapPosition} zoom={9} scrollWheelZoom={true} className={styles.map}>
 				<TileLayer
 					attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 					url="https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png"
