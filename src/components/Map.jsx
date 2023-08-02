@@ -35,3 +35,16 @@ export default function Map() {
 		</div>
 	);
 }
+
+function ChangeCenter({position}) {
+	const map = useMap();
+	map.setView(position);
+	return null;
+}
+
+function DetectClick() {
+	const navigate = useNavigate();
+	useMapEvents({
+		click: e => navigate(`form?lat=${e.latlng.lat}&lng=${e.latlng.lng}`),
+	});
+}
