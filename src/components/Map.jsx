@@ -7,11 +7,16 @@ import {useCities} from "../contexts/CitiesContext.jsx";
 export default function Map() {
 	const navigate = useNavigate();
 	const {cities} = useCities();
-	const [mapPosition, setMapPosition] = useState([52.3676, 4.9041]);
+	const [mapPosition, setMapPosition] = useState(["52.3676", "4.9041"]);
 
-	const [searchParams, setSearchParams] = useSearchParams();
-	const lat = searchParams.get("lat");
-	const lng = searchParams.get("lng");
+	const [searchParams] = useSearchParams();
+	const mapLat = searchParams.get("lat");
+	const mapLng = searchParams.get("lng");
+
+	useEffect(() => {
+		if (mapLat && mapLng) setMapPosition([mapLat, mapLng]);
+	}, [mapLat, mapLng]);
+
 	return (
 		<div
 			className={styles.mapContainer}
