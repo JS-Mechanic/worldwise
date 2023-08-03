@@ -1,13 +1,17 @@
 // "https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=0&longitude=0"
 
 import {useEffect, useState} from "react";
-
+import DatePicker from "react-datepicker";
 import styles from "./Form.module.css";
 import Button from "./Button.jsx";
 import BackButton from "./BackButton.jsx";
 import {useUrlPosition} from "../hooks/useUrlPosition.js";
 import Message from "./Message.jsx";
 import Spinner from "./Spinner.jsx";
+import uniqid from "uniqid";
+import "react-datepicker/dist/react-datepicker.css";
+import {useCities} from "../contexts/CitiesContext.jsx";
+import {useNavigate} from "react-router-dom";
 
 export function convertToEmoji(countryCode) {
 	const codePoints = countryCode
