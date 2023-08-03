@@ -23,6 +23,10 @@ export default function Map() {
 		if (mapLat && mapLng) setMapPosition([mapLat, mapLng]);
 	}, [mapLat, mapLng]);
 
+	useEffect(() => {
+		if (geolocationPosition) setMapPosition([geolocationPosition.lat, geolocationPosition.lng]);
+	}, [geolocationPosition]);
+
 	return (
 		<div className={styles.mapContainer}>
 			<MapContainer center={mapPosition} zoom={9} scrollWheelZoom={true} className={styles.map}>
