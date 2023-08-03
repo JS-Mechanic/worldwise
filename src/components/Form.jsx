@@ -32,8 +32,11 @@ function Form() {
 	const [isLoadingGeocoding, setIsLoadingGeocoding] = useState(false);
 	const [emoji, setEmoji] = useState("");
 	const [geoCodingError, setGeocodingError] = useState("");
+	const {createCity, isLoading} = useCities();
+	const navigate = useNavigate();
 
 	useEffect(() => {
+		if (!lat && !lng) return;
 		async function fetchCityData() {
 			try {
 				setIsLoadingGeocoding(true);
