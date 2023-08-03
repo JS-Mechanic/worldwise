@@ -1,10 +1,13 @@
 // "https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=0&longitude=0"
 
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
 import styles from "./Form.module.css";
 import Button from "./Button.jsx";
 import BackButton from "./BackButton.jsx";
+import {useUrlPosition} from "../hooks/useUrlPosition.js";
+import Message from "./Message.jsx";
+import Spinner from "./Spinner.jsx";
 
 export function convertToEmoji(countryCode) {
 	const codePoints = countryCode
@@ -13,6 +16,8 @@ export function convertToEmoji(countryCode) {
 		.map(char => 127397 + char.charCodeAt());
 	return String.fromCodePoint(...codePoints);
 }
+
+const BASE_URL = "https://api.bigdatacloud.net/data/reverse-geocode-client";
 
 function Form() {
 	const [cityName, setCityName] = useState("");
