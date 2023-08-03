@@ -71,11 +71,11 @@ function Form() {
 	}
 
 	if (isLoadingGeocoding) return <Spinner />;
-
+	if (!lat && !lng) return <Message message="Start by clicking somewhere on the map" />;
 	if (geoCodingError) return <Message message={geoCodingError} />;
 
 	return (
-		<form className={styles.form}>
+		<form className={`${styles.form} ${isLoading ? styles.loading : ""}`} onSubmit={handleSubmit}>
 			<div className={styles.row}>
 				<label htmlFor="cityName">City name</label>
 				<input id="cityName" onChange={e => setCityName(e.target.value)} value={cityName} />
