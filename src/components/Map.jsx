@@ -3,6 +3,8 @@ import {useNavigate, useSearchParams} from "react-router-dom";
 import {MapContainer, Marker, Popup, TileLayer, useMap, useMapEvents} from "react-leaflet";
 import {useEffect, useState} from "react";
 import {useCities} from "../contexts/CitiesContext.jsx";
+import {useGeolocation} from "../hooks/useGeolocation.js";
+import Button from "./Button.jsx";
 
 export default function Map() {
 	const navigate = useNavigate();
