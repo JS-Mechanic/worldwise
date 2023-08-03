@@ -54,6 +54,22 @@ function Form() {
 		fetchCityData();
 	}, [lat, lng]);
 
+	async function handleSubmit(e) {
+		e.preventDefault();
+		if (!cityName || !date) return;
+		const newCity = {
+			cityName,
+			country,
+			emoji,
+			date,
+			notes,
+			position: {lat, lng},
+			id: uniqid.process(),
+		};
+		await createCity(newCity);
+		navigate("/app");
+	}
+
 	if (isLoadingGeocoding) return <Spinner />;
 
 	if (geoCodingError) return <Message message={geoCodingError} />;
