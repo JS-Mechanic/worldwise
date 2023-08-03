@@ -29,6 +29,11 @@ export default function Map() {
 
 	return (
 		<div className={styles.mapContainer}>
+			{!geolocationPosition && (
+				<Button type="position" onClick={getPosition}>
+					{isLoadingPosition ? "Loading..." : "Use your position"}
+				</Button>
+			)}
 			<MapContainer center={mapPosition} zoom={9} scrollWheelZoom={true} className={styles.map}>
 				<TileLayer
 					attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
