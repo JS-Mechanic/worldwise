@@ -97,7 +97,12 @@ function Form() {
 
 			<div className={styles.row}>
 				<label htmlFor="notes">Notes about your trip to {cityName}</label>
-				<textarea id="notes" onChange={e => setNotes(e.target.value)} value={notes} />
+				<textarea
+					required={true}
+					id="notes"
+					onChange={e => setNotes(e.target.value)}
+					value={notes}
+				/>
 			</div>
 
 			<div className={styles.buttons}>
