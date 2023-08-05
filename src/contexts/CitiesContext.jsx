@@ -57,15 +57,14 @@ export function CitiesProvider({children}) {
 	}, []);
 
 	async function getCity(id) {
+		if (Number(id) === currentCity.id) return;
+		dispatch({type: "loading"});
 		try {
-			setIsLoading(true);
 			const res = await fetch(`${BASE_URL}/cities/${id}`);
 			const data = await res.json();
-			setCurrentCity(data);
+			dispatch({type: "city/loaded", payload: data});
 		} catch (e) {
-			alert(e.message);
-		} finally {
-			setIsLoading(false);
+			dispatch({type: "rejected", payload: "There was an error loading city!"});
 		}
 	}
 
