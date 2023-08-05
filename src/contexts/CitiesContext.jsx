@@ -44,15 +44,13 @@ export function CitiesProvider({children}) {
 
 	useEffect(() => {
 		async function fetchCities() {
+			dispatch({type: "loading"});
 			try {
-				setIsLoading(true);
 				const res = await fetch(`${BASE_URL}/cities`);
 				const data = await res.json();
-				setCities(data);
+				dispatch({type: "cities/loaded", payload: data});
 			} catch (e) {
-				alert(e.message);
-			} finally {
-				setIsLoading(false);
+				dispatch({type: "rejected", payload: "There was an error loading cities!"});
 			}
 		}
 		fetchCities();
