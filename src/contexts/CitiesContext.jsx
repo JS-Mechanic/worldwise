@@ -69,19 +69,17 @@ export function CitiesProvider({children}) {
 	}
 
 	async function createCity(newCity) {
+		dispatch({type: "loading"});
 		try {
-			setIsLoading(true);
 			const res = await fetch(`${BASE_URL}/cities/`, {
 				method: "POST",
 				body: JSON.stringify(newCity),
 				headers: {"Content-Type": "application/json"},
 			});
 			const data = await res.json();
-			setCities(cities => setCities([...cities, data]));
+			dispatch({type: "city/created", payload: data});
 		} catch (e) {
-			alert("There was an error creating city!");
-		} finally {
-			setIsLoading(false);
+			dispatch({type: "rejected", payload: "There was an error creating city!"});
 		}
 	}
 
