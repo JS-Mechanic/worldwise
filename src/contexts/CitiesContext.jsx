@@ -1,6 +1,6 @@
 import {createContext, useCallback, useContext, useEffect, useReducer} from "react";
 
-const BASE_URL = "http://localhost:8000";
+const BASE_URL = "https://my-json-server.typicode.com/JS-Mechanic/restapi";
 const CitiesContext = createContext(null);
 
 const initialState = {
